@@ -1,0 +1,30 @@
+server:
+  port: 8065
+
+spring:
+  profiles:
+    active: h2
+
+dataagent:
+  analysis:
+    python:
+      enabled: false
+      python-command: python
+      timeout-seconds: 5
+      max-output-chars: 8000
+      max-rows: 100
+      work-dir: ./python_sandbox
+      allow-network: false
+      allow-file-read: false
+      allow-file-write: false
+      fallback-to-safe-analysis: true
+  security:
+    secret-key: ${DATAAGENT_SECRET_KEY:}
+    encrypt-prefix: "ENC:"
+    mask-prefix-length: 4
+    mask-suffix-length: 4
+    sql:
+      max-rows: 100
+      query-timeout-seconds: 10
+      force-limit: true
+      default-limit: 100

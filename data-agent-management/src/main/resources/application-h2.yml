@@ -1,0 +1,55 @@
+server:
+  port: 8065
+
+# The management database stores DataAgent metadata, not the business data analyzed by agents.
+spring:
+  datasource:
+    url: jdbc:h2:mem:nl2sql_database;DB_CLOSE_DELAY=-1;DATABASE_TO_LOWER=true;MODE=MySQL;DB_CLOSE_ON_EXIT=FALSE
+    username: root
+    password: root
+    driver-class-name: org.h2.Driver
+  sql:
+    init:
+      mode: always
+      schema-locations:
+        - classpath:sql/h2/schema-h2.sql
+      continue-on-error: true
+      separator: ;
+      encoding: utf-8
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+  ai:
+    vectorstore:
+      type: simple
+    alibaba:
+      data-agent:
+        vector-store:
+          table-topk-limit: 10
+          table-similarity-threshold: 0.2
+          default-topk-limit: 8
+          default-similarity-threshold: 0.4
+        llm-service-type: stream
+        code-executor:
+          code-pool-executor: local
+          python-max-tries-count: 5
+        file:
+          type: local
+          path-prefix: data-agent
+          path: uploads
+          url-prefix: /uploads
+          imageSize: 2097152
+        max-sql-retry-count: 10
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl
+
+logging:
+  level:
+    com.alibaba.cloud.ai.dataagent.service: debug
+    com.alibaba.cloud.ai.dataagent.workflow.node: debug
+    com.alibaba.cloud.ai.mapper: debug
+    org.springframework.jdbc: debug

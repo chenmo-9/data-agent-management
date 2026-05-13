@@ -1,0 +1,410 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  color: #1f2937;
+  background: #f5f7fb;
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.app-layout {
+  min-height: 100%;
+}
+
+.app-sidebar {
+  border-right: 1px solid #e5e7eb;
+  background: #ffffff;
+}
+
+.app-brand {
+  height: 56px;
+  padding: 0 20px;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 56px;
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #e5e7eb;
+  background: #ffffff;
+  font-weight: 600;
+}
+
+.app-main {
+  padding: 20px;
+}
+
+.app-menu {
+  border-right: 0;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.page-title {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 650;
+}
+
+.page-card {
+  border-radius: 8px;
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.toolbar .el-input,
+.toolbar .el-select {
+  width: 180px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 16px;
+}
+
+.form-full {
+  grid-column: 1 / -1;
+}
+
+.dialog-form {
+  max-height: 65vh;
+  overflow: auto;
+  padding-right: 8px;
+}
+
+pre {
+  white-space: pre-wrap;
+  word-break: break-word;
+  margin: 0;
+  padding: 12px;
+  border-radius: 6px;
+  background: #f3f4f6;
+}
+
+.run-page {
+  gap: 18px;
+}
+
+.run-form-card .el-select,
+.run-form-card .el-input {
+  width: 100%;
+}
+
+.result-card h3 {
+  margin: 14px 0 8px;
+  font-size: 15px;
+}
+
+.core-summary {
+  margin: 8px 0 12px;
+  color: #111827;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.8;
+}
+
+.run-result-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 16px;
+}
+
+.sql-block {
+  min-height: 72px;
+  border: 1px solid #dbeafe;
+  background: #f8fbff;
+  color: #111827;
+  font-family: "Cascadia Code", Consolas, monospace;
+}
+
+.markdown-preview {
+  min-height: 220px;
+  border: 1px solid #e5e7eb;
+  background: #ffffff;
+  line-height: 1.6;
+}
+
+.markdown-rendered {
+  min-height: 220px;
+  padding: 16px;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  background: #ffffff;
+  line-height: 1.7;
+}
+
+.markdown-rendered h1,
+.markdown-rendered h2,
+.markdown-rendered h3 {
+  margin: 14px 0 8px;
+}
+
+.markdown-rendered p,
+.markdown-rendered ul {
+  margin: 8px 0;
+}
+
+.markdown-rendered code {
+  padding: 2px 5px;
+  border-radius: 4px;
+  background: #eef2ff;
+}
+
+.chart-preview {
+  min-height: 280px;
+}
+
+.chart-spec-meta {
+  margin-bottom: 12px;
+}
+
+.echarts-canvas {
+  width: 100%;
+  height: 360px;
+}
+
+.chart-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 260px;
+  color: #6b7280;
+  background: #f9fafb;
+  border: 1px dashed #d1d5db;
+  border-radius: 6px;
+}
+
+.chart-error {
+  min-height: 56px;
+  margin-top: 12px;
+  color: #991b1b;
+  background: #fff7f7;
+  border-color: #fecaca;
+}
+
+.chart-fallback-table {
+  margin-top: 12px;
+}
+
+.single-value-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 260px;
+  padding: 28px;
+  border: 1px solid #dbeafe;
+  border-radius: 8px;
+  background: #f8fbff;
+}
+
+.single-value-label {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.single-value-number {
+  margin: 12px 0;
+  color: #111827;
+  font-size: 42px;
+  font-weight: 700;
+}
+
+.single-value-desc {
+  color: #6b7280;
+}
+
+.json-pre {
+  max-height: 360px;
+  overflow: auto;
+  font-family: "Cascadia Code", Consolas, monospace;
+  font-size: 13px;
+}
+
+.event-table {
+  width: 100%;
+}
+
+.business-answer-card {
+  border-color: #bfdbfe;
+  background: #fbfdff;
+}
+
+.debug-collapse {
+  border-radius: 8px;
+}
+
+.debug-collapse .el-collapse-item__header {
+  color: #374151;
+  font-weight: 600;
+}
+
+.muted-text {
+  margin: 12px 0 0;
+  color: #6b7280;
+}
+
+.mb-12 {
+  margin-bottom: 12px;
+}
+
+.mt-12 {
+  margin-top: 12px;
+}
+
+.python-panel {
+  border-color: #dbeafe;
+}
+
+.code-block {
+  max-height: 360px;
+  overflow: auto;
+  border: 1px solid #e5e7eb;
+  background: #f8fafc;
+  font-family: "Cascadia Code", Consolas, monospace;
+}
+
+.stderr-block {
+  max-height: 260px;
+  overflow: auto;
+  border: 1px solid #fecaca;
+  background: #fff7f7;
+  color: #991b1b;
+  font-family: "Cascadia Code", Consolas, monospace;
+}
+
+.table-footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 16px;
+}
+
+.human-confirm-card {
+  border-color: #f59e0b;
+}
+
+.confirm-sql-editor {
+  margin-top: 12px;
+}
+
+.confirm-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.workbench-home {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.home-hero {
+  border-radius: 8px;
+}
+
+.home-hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.home-page h1 {
+  margin: 0 0 10px;
+  font-size: 28px;
+}
+
+.home-page h2,
+.home-page h3,
+.home-page p {
+  margin: 0;
+}
+
+.home-page p {
+  color: #6b7280;
+  line-height: 1.7;
+}
+
+.home-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.capability-item {
+  min-height: 142px;
+  margin-bottom: 16px;
+  padding: 16px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.capability-item h3 {
+  margin: 12px 0 8px;
+  font-size: 16px;
+}
+
+.workflow-steps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.workflow-arrow {
+  color: #9ca3af;
+  font-weight: 600;
+}
+
+.quick-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.timeline-card {
+  border-radius: 8px;
+}
+
+.timeline-card p {
+  margin-top: 6px;
+}
+
+@media (max-width: 1100px) {
+  .run-result-grid,
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .home-hero-content {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

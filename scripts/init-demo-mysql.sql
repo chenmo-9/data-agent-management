@@ -1,0 +1,27 @@
+CREATE DATABASE IF NOT EXISTS test DEFAULT CHARACTER SET utf8mb4;
+
+USE test;
+
+CREATE TABLE IF NOT EXISTS users (
+  id BIGINT PRIMARY KEY AUTO_INCREMENT,
+  name VARCHAR(100)
+);
+
+CREATE TABLE IF NOT EXISTS orders (
+  id BIGINT PRIMARY KEY AUTO_INCREMENT,
+  user_id BIGINT,
+  amount DECIMAL(10,2),
+  created_at DATETIME
+);
+
+TRUNCATE TABLE users;
+TRUNCATE TABLE orders;
+
+INSERT INTO users(id, name) VALUES
+(1, 'Alice'),
+(2, 'Bob');
+
+INSERT INTO orders(user_id, amount, created_at) VALUES
+(1, 100.00, NOW()),
+(1, 200.00, NOW()),
+(2, 300.00, NOW());
