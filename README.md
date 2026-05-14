@@ -357,7 +357,4 @@ chat 模式是普通 mock 对话，不会执行 NL2SQL、Knowledge Recall 或 RA
 
 需要检查 `GraphHumanServiceImpl.confirm` 的状态判断和事件 data 构造。Java `Map.of(...)` 不允许 null value，如果确认事件中放入了 null，可能导致 NPE。当前版本已对这类问题做过修复。
 
-## 十七、适合简历的一句话
-
-基于 Spring Boot、Vue3、MyBatis、MySQL 和 OpenAI-compatible LLM 重建 Spring AI Alibaba DataAgent 核心链路，实现从自然语言问题到 Schema/Relation/Knowledge 召回、SQL 生成与安全执行、Python 分析、ECharts 报告和运行历史追踪的智能数据分析工作台。
 
